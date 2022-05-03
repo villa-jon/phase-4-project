@@ -5,5 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "seeding......"
+
 user = User.create(username: "JonVilla", password: "Password")
-post= Post.create(name: user, post: "I hate that I am starting all over again but its whatev.")
+Blog.create(name: user, post: "I hate that I am starting all over again but its whatev.")
+
+puts "all done!"
