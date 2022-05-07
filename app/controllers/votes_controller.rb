@@ -1,4 +1,4 @@
-class VotesController < ApplicationController
+class Api::VotesController < ApplicationController
   def index
     render json: Vote.all
   end 
