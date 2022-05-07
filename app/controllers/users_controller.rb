@@ -1,52 +1,35 @@
 class UsersController < ApplicationController
-  # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def index
-    @users = User.all
-    if @users
-      render json: {
-        users: @users
-      }
-    else 
-      render json: {
-        status: 500 
-        errors: ['user not found']
-      }
-    end
+    users = User.all
+    render json: users
   end 
 # byebug 
-  def create
-    @user = User.find(params[:id])
-    if @user
-      render json: {
-        user: @user
-      }
+  def show
+    user = User.find_by_id(params[:id])
+    if user
+      render json: user
     else 
-      render json: {
-        status: 500 
-        errors: ['user not found']
-      }
+      render json: {user.errors.full_messages}
     end
   end 
 
-  def show 
-    @users = User.new(user_params)
-    if @users.save
+  def create 
+    user = User.new(user_params)
+    if user.save
       login!
-      render json: {
-        status: :created,
-        user: @user
-      }
+      render json: user
     else 
       render json: {
         status: 500 
-        errors: @user.errors.full_messages
+        errors: user.errors.full_messages
       }
     end 
   end 
 
-  # def update 
-  # end 
+  # # def update 
+  # # end 
 
   private
 
@@ -54,8 +37,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :password_confirmation)
   end 
 
-  # def render_not_found_response
-	# 	render json: { error: "User not found" }, status: :not_found
-	# end
+  def render_not_found_response
+		render json: { error: "User not found" }, status: :not_found
+	end
 
 end
