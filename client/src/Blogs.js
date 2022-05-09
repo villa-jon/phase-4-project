@@ -1,11 +1,11 @@
 import React from 'react';
-import "./css/Signin.css"
+import "./css/Blogs.css"
 
-function Signin() {
+function Blogs() {
 
   return (
        <div className="parentSignin">Signin</div>    
   );
 }
 
-export default Signin
+export default Blogs
