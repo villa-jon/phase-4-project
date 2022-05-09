@@ -7,9 +7,6 @@
     "node": "16.x"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.6.2",
-    "@mui/material": "^5.6.4",
-    "@mui/styled-engine-sc": "^5.6.1",
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",

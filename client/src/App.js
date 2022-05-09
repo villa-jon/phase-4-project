@@ -6,13 +6,14 @@ import './App.css';
 import Navbar from './Navbar'
 import Login from './Login'
 import Blogs from './Blogs'
+import Home from './Home'
 
 function App() {
   const [newUser, setNewUser] = useState(null)
 
   useEffect(() => {
-    // console.log()
-    fetch("/api/users").then((r) => {
+    // console.log(newUser)
+    fetch("/users").then((r) => {
       if (r.ok) {
         r.json().then((newUser) => setNewUser(newUser))
       }
@@ -30,8 +31,12 @@ function App() {
       setUser = {setNewUser}/>
     <Routes>
       <Route
-      path="/home"
+      path="/blogs"
       element={<Blogs/>}
+      />
+      <Route
+      path="/home"
+      element={<Home/>}
       />
     </Routes>
       
