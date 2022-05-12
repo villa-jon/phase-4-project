@@ -1,4 +1,6 @@
 import React, {useState} from "react"
+import { Form, Button } from "react-bootstrap";
+// import SignUpContainer from './SignUpContainer';
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -24,8 +26,9 @@ function Login({ onLogin }) {
 
   return(
     <div>
-      <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username</label>
+      <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3">
+      <Form.Label htmlFor="username">Username: </Form.Label>
         <input
           type="text"
           id="username"
@@ -33,7 +36,7 @@ function Login({ onLogin }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password">Password</label>
+        <Form.Label htmlFor="password">Password: </Form.Label>
         <input
           type="password"
           id="password"
@@ -41,10 +44,11 @@ function Login({ onLogin }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button variant="fill" color="primary" type="submit">
+        <Button variant="outline-primary" type="submit">
           {isLoading ? "Loading..." : "Login"}
-        </button>
-      </form>
+        </Button>
+      </Form.Group>
+      </Form>
     </div>
   )
 }

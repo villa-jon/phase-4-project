@@ -1,4 +1,6 @@
 .parentSignin{
-  color: pink; 
-  border: solid; 
+  width: 300px;
+  margin: 10px;
+  /* background-color: pink;  */
+  /* border: solid;  */
 }
