@@ -1,3 +1,4 @@
 class VoteSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :blog, :user_id, :value
+  # has_one: :post
 end
