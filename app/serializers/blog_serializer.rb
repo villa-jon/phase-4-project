@@ -5,5 +5,9 @@ class BlogSerializer < ActiveModel::Serializer
   def vote_likes
     self.object.votes.length
   end
+
+  def destroy_likes
+    self.object.votes.length - 1
+  end 
   # has_one :user
 end

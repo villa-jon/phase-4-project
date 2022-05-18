@@ -11,7 +11,7 @@ class Api::VotesController < ApplicationController
   end 
 
   def destroy
-    @vote = current_user.votes.find(params[:id])
+    @vote = @current_user.votes.find(params[:id])
     @vote.destroy
   end 
 
