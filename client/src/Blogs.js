@@ -17,15 +17,7 @@ function Blogs({ setUser }) {
     .then((blogs) => {
       // debugger
       setBlogs(blogs)
-      //this is sending 
-      /*
-      comment_pleasework: Array(1)
-      0: {id: 9, user_id: 5, blog_id: 3, comment: 'does this work', created_at: '2022-05-21T07:41:23.316Z', …}
-      length: 1
-      comments: 
-      0: {id: 9, comment: 'does this work'}
-      */
-      // debugger
+      
     })
     return () => {
       abortController.abort()
