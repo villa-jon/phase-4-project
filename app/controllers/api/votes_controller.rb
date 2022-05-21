@@ -11,14 +11,14 @@ class Api::VotesController < ApplicationController
   end 
 
   def destroy
-    @vote = @current_user.votes.find(params[:id])
+    # byebug
+    @vote = Vote.find_by_id(params[:id])
     @vote.destroy
   end 
 
   def create
-    params[:user_id] = @current_user.id
+    vote_params[:user_id] = @current_user
     vote = Vote.create(vote_params)
-    # byebug
     render json: vote
   end 
 

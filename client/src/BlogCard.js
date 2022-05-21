@@ -24,8 +24,9 @@ const BlogCard = ({ blog, edtUGHedit, showDelete, newUser}) => {
   }
 
   function incrementMe(w) {
-    // console.log(w.target.value)
+    console.log(w.target.value)
     w.preventDefault()
+    // debugger
     fetch("api/votes", {
       method: "POST", 
       headers: {
@@ -34,6 +35,7 @@ const BlogCard = ({ blog, edtUGHedit, showDelete, newUser}) => {
       },
       body: JSON.stringify({
         blog_id: blog.id, 
+        user_id: newUser.id
       })
     })
     .then((r) => {

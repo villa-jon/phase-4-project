@@ -1,5 +1,5 @@
 class BlogSerializer < ActiveModel::Serializer
-  attributes :id, :name, :post, :vote_likes, :destroy_likes, :comment_pleasework
+  attributes :id, :name, :post, :vote_likes, :destroy_likes
   has_many :comments
 
   def vote_likes
@@ -10,8 +10,8 @@ class BlogSerializer < ActiveModel::Serializer
     self.object.votes
   end 
 
-  def comment_pleasework
-    self.object.comments
-  end
+  # def comment_pleasework
+  #   self.object.comments
+  # end
   # has_one :user
 end
