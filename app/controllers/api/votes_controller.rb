@@ -24,10 +24,6 @@ class Api::VotesController < ApplicationController
 
   private 
 
-  # def find_blog
-  #   @blog = Blog.find(params[:blog_id])
-  # end
-
   def vote_params
     params.permit(:value, :user_id, :blog_id)
   end 

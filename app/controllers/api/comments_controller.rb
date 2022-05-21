@@ -20,7 +20,7 @@ class Api::CommentsController < ApplicationController
     if comment&.update(comment_params)
       render json: comment
     else 
-      render json: {error: comment.error.full_messages.to_sentence}, status: 406
+      render json: {errors: comment.errors.full_messages.to_sentence}, status: 406
     end 
   end 
 # byebug
