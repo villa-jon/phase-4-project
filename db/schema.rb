@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_05_023428) do
+ActiveRecord::Schema.define(version: 2022_05_16_001314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,20 @@ ActiveRecord::Schema.define(version: 2022_05_05_023428) do
   create_table "blogs", force: :cascade do |t|
     t.string "name"
     t.string "post"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "blog_id"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_id"], name: "index_comments_on_blog_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,12 +42,13 @@ ActiveRecord::Schema.define(version: 2022_05_05_023428) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.string "reference_id"
-    t.string "reference_type"
-    t.integer "user_id"
+    t.bigint "blog_id"
+    t.bigint "user_id"
     t.integer "value", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_id"], name: "index_votes_on_blog_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
 end

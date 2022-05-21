@@ -8,6 +8,6 @@
 puts "seeding......"
 
 user = User.create(username: "JonVilla", password: "Password")
-Blog.create(name: user, post: "I hate that I am starting all over again but its whatev.")
-
+blog = Blog.create(user: user, name: "rails-project", post: "I hate that I am starting all over again but its whatev.")
+Vote.create(user: user, blog: blog, value: 1)
 puts "all done!"

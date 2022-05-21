@@ -1,6 +1,62 @@
-.parentSignin{
-  width: 300px;
-  margin: 10px;
-  /* background-color: pink;  */
-  /* border: solid;  */
+.row{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
 }
+.grid{
+	justify-content: flex-start;
+}
+.mt-0 {
+	margin-top: 0 !important;
+      }
+.px-2 {
+	/* padding-left: ($spacer * .5) !important;
+	padding-right: ($spacer * .5) !important; */
+}
+.card {
+	/* display: flex;  */
+	width: 300px;
+	background-color: light grey;
+	margin: 10px;
+	align-items: center;
+	justify-content: center;
+	
+}
+.cardParent {
+	height: 100%
+}
+.cardText {
+	font-size: 10px;
+	/* width: 50%; */
+}
+.container {
+	margin: 0;
+	width: 80%;
+	flex-wrap: wrap;
+}
+.parentSignin{
+    margin: 0 ;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+}
+
+.input[type=text] {
+  border: none;
+  border-bottom: 2px solid red;
+}
+
+.textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: horizontal;
+}
+

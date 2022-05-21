@@ -1,6 +1,5 @@
 // import logo from './logo.svg';
 import React, {useEffect, useState} from 'react';
-// import ReactDOM from 'react-dom';
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import Navbar from './NavBar'
@@ -8,7 +7,6 @@ import LoginContainer from './LoginContainer'
 import Blogs from './Blogs'
 import Home from './Home'
 import CreateBlogs from'./CreateBlogs'
-// import SignUpContainer from './SignUpContainer';
 
 function App() {
   const [newUser, setNewUser] = useState(null)
@@ -38,7 +36,9 @@ function App() {
     <Routes>
       <Route
       path="/blogs"
-      element={<Blogs/>}
+      element={<Blogs 
+      setUser = {newUser}/>  
+      }
       />
       <Route
       path="/home"
@@ -50,7 +50,9 @@ function App() {
       />  */}
       <Route
       path="/createblogs"
-      element={<CreateBlogs/>}
+      element={<CreateBlogs
+      newUser={newUser}
+      />}
       />
     </Routes>
       

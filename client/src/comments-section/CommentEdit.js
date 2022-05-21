@@ -1,46 +1,44 @@
-import React, {useState} from "react"
-import { Form, Card, Button } from "react-bootstrap";
-// import Blogs from "./Blogs"
+import React, {useState} from 'react'
+import { Form, Button } from "react-bootstrap";
 
-function EditForm({blog, edtUGHedit, bOooo}) {
-  const [current, setCurrent] = useState(blog.post)
+const CommentEdit = ({ comment, setComments, editForm, editComment }) => {
+  const [current, setCurrent] = useState(comment.comment)
 
   function handleUpdate(w) {
     // debugger
     w.preventDefault()
-    fetch(`api/blogs/${blog.id}`, {
+    fetch(`api/comments/${comment.id}`, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",
 				"Accept" : "application/json"
 			},
 			body: JSON.stringify({
-					post: current
+					comment: current
 			}),
 			})
       .then((response) => {
         if (response.ok) {
           response.json()
-          .then((blogOBJ) => {
-            bOooo()
-            edtUGHedit(blogOBJ)
+          .then((commentOBJ) => {
+            editForm()
+            editComment(commentOBJ)
+            // debugger
           })
         } else {
           response.json()
           .then((errorOBJ) => alert(errorOBJ.error))
         }
       })
-      
+      // setComments("")
 	  }
 
-  return(
+  return (
     <div>
       <Form
       onSubmit={handleUpdate}
       >
-        <Card.Header as="h5">{blog.name}</Card.Header>
         <Form.Group className="mb-3" controlId="formBasicEmail" >
-          <Form.Label>Blog Content</Form.Label>
           <Form.Control type="text" value={current} onChange={(w) => setCurrent(w.target.value)} />
           <Form.Text className="text-muted">
           </Form.Text>
@@ -51,7 +49,6 @@ function EditForm({blog, edtUGHedit, bOooo}) {
       </Form>
     </div>
   )
-
 }
 
-export default EditForm
+export default CommentEdit

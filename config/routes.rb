@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   namespace :api do 
-    resources :blogs, only: [:index, :show, :update, :destroy] 
-    resources :users, only: [:index, :show, :update]
+    resources :blogs 
+    # do 
+    #   post "blogs", to: "blogs#create"
+    resources :votes
+    # end  
+    resources :comments
+    # resources :votes
+    get "/current-user", to: "users#show"
+    post "/users", to: "users#create" 
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
   end 

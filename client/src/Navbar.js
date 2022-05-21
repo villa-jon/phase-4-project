@@ -29,10 +29,17 @@ function NavBar({ user, setUser }) {
         <Container>
           <Navbar.Brand href="#home">Welcome!</Navbar.Brand>
           <Nav className="me-auto">
-              <NavLink to="/home" style={{padding: '10px'}}>Home</NavLink>
-              <NavLink to="/blogs" style={{padding: '10px'}}>Blogs</NavLink>
-              <NavLink to="/createblogs" style={{padding: '10px'}}>Post</NavLink>
-              <NavLink to="signupcontainer" style={{padding: '10px'}}>Sign Up</NavLink>
+            <Nav.Item>
+              <Nav.Link href="/home" style={{padding: '10px'}}>Home</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/blogs" style={{padding: '10px'}}>Blogs</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/createblogs" style={{padding: '10px'}}>Post</Nav.Link>
+            </Nav.Item>
+              
+              {/* <NavLink to="signupcontainer" style={{padding: '10px'}}>Sign Up</NavLink> */}
            </Nav>
         </Container>
       <div style={buttonStyle}>

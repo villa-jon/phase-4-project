@@ -1,11 +1,15 @@
-import React, {useEffect, useState} from 'react';
-// import { Card, Button } from "react-bootstrap";
+import React from 'react';
 import BlogCard from "./BlogCard"
 import "./css/Blogs.css"
 
-function BlogForm({ blogs, edtUGHedit }) {
+function BlogForm({ blogs, edtUGHedit, showDelete, setUser }) {
+  console.log('these are blogs', blogs)
+  const twitterish = blogs.map((blog) => <BlogCard edtUGHedit=
+  {edtUGHedit} 
+  newUser={setUser}
+  showDelete={showDelete}
 
-  const twitterish = blogs.map((blog) => <BlogCard edtUGHedit={edtUGHedit} key={blog.id} blog={blog} />)
+  key={blog.id} blog={blog} />)
 
   return (
   <div className="parentSignin">{twitterish}</div>  
