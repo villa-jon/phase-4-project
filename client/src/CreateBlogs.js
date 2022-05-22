@@ -25,7 +25,7 @@ function CreateBlogs({ newUser }){
       setName("")
       setPost("");
   }
-console.log('all blogs ', sBlogs)
+// console.log('all blogs ', sBlogs)
   return(
     <div>
       <Form

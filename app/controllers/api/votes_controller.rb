@@ -19,7 +19,9 @@ class Api::VotesController < ApplicationController
   def create
     vote_params[:user_id] = @current_user
     vote = Vote.create(vote_params)
+   
     render json: vote
+    
   end 
 
   private 

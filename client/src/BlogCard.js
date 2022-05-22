@@ -3,13 +3,15 @@ import EditForm from "./EditForm"
 import Comment from "./Comment"
 import PostComment from "./comments-section/PostComment"
 import { Card, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { useIsRTL } from 'react-bootstrap/esm/ThemeProvider';
 
 const BlogCard = ({ blog, edtUGHedit, showDelete, newUser}) => {
   const [likes, setLikes] = useState(blog.vote_likes)
   const [edit, setEdit] = useState(false)
   const [destroyLike, setDestroyLike] = useState(false)
   const [blogComments, setBlogComments] = useState(blog.comments)
-  console.log("this is likes" + likes)
+  // console.log("this is likes" + likes)
+  const [user, setUser] = useState(null)
 
   function editComment(newComment) {
    
@@ -24,9 +26,9 @@ const BlogCard = ({ blog, edtUGHedit, showDelete, newUser}) => {
   }
 
   function incrementMe(w) {
-    console.log(w.target.value)
-    w.preventDefault()
+    // console.log(w.target.value)
     // debugger
+    w.preventDefault()
     fetch("api/votes", {
       method: "POST", 
       headers: {
@@ -40,10 +42,12 @@ const BlogCard = ({ blog, edtUGHedit, showDelete, newUser}) => {
     })
     .then((r) => {
       if (r.ok){
+        // debugger
         r.json()
         .then((likes) => {
           // debugger
           setDestroyLike(true)
+          setUser(likes.blog.show_users)
           setLikes(likes.blog.vote_likes)})
 
     } else {
@@ -53,7 +57,7 @@ const BlogCard = ({ blog, edtUGHedit, showDelete, newUser}) => {
     })
   }
 
-  function destroyLikes(id) {
+  function destroyLikes() {
     // console.log("this is destroyLike", blog.destroy_likes)
     // debugger
     fetch(`/api/votes/${blog.destroy_likes.shift().id}`, 
@@ -68,13 +72,20 @@ const BlogCard = ({ blog, edtUGHedit, showDelete, newUser}) => {
   }
 
   function showUser() {
+    console.log("this is user", user)
     // debugger
-    if (Object.values(newUser).map(x => x === newUser["username"])) {
-      return (
-        <div>{newUser["username"]}</div>
-        )
-    } else {
-      console.log("it did not ;( ")
+    if (user != null) {
+    let w =  user.filter((x, y) => user.indexOf(x) === y)  
+    console.log(w)
+    return user.map(x => (
+      <div>
+        {x.}
+      </div>
+
+    )
+    )
+    // } else {
+    //   console.log("it did not ;( ")
     }
      
     // debugger
