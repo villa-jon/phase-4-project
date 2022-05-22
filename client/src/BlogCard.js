@@ -77,15 +77,14 @@ const BlogCard = ({ blog, edtUGHedit, showDelete, newUser}) => {
     if (user != null) {
     let w =  user.filter((x, y) => user.indexOf(x) === y)  
     console.log(w)
-    return user.map(x => (
+    return w.map(x => (
       <div>
-        {x.}
+        {x}
       </div>
 
     )
     )
-    // } else {
-    //   console.log("it did not ;( ")
+
     }
      
     // debugger
