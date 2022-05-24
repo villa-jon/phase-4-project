@@ -342,7 +342,3 @@ Resources:
 
 - https://medium.com/swlh/react-reactions-cfdde7f08dff
 - https://medium.com/quick-code/simple-rails-crud-app-with-react-frontend-using-react-rails-gem-b708b89a9419
-
-## Addendum: 
-
-I want to take a moment and say that this entire process was frustrating and exhausting, my patience ran thin and I have been apart of this entire cohort(s) for a while now and the main regret is that it took three cohort leads to help me understand this part of the curriculum. Not only am I also working, but this to me just shows how punishing this can be. 
