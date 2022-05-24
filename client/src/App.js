@@ -42,7 +42,9 @@ function App() {
       />
       <Route
       path="/home"
-      element={<Home/>}
+      element={<Home
+      user={newUser}
+      />}
       />
       {/* <Route
       path="/signupcontainer"
