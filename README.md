@@ -1,9 +1,17 @@
-# Project Template: React/Rails API
+# My Rails React project 
 
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails
 backend together, and easily deploy them to Heroku.
+
+## Motivation 
+
+This app was partly inspired by how the much loved website Tumblr. With that said, this app is very similar to Tumblr, but with some Twitter components added along with it. Personally, I was not a fan of how some website components of Tumblr ran and wanted to combine the like aspect of Twitter and the style and look of Tumblr. 
+
+![Screen Shot 2022-05-23 at 10 43 48 PM](https://user-images.githubusercontent.com/80315243/169957866-678a4d64-a481-474b-a8b6-4a469dc275bb.png)
+
+As seen here, This has the look and style of Tumblr, but allows the user to hover over and see who liked what post. For this project, I used the project template that was provided for me from FlatIron School. 
 
 ## Requirements
 
@@ -325,3 +333,16 @@ For additional support, check out these guides on Heroku:
 [postgres downloads page]: https://postgresapp.com/downloads.html
 [heroku rails deploying guide]: https://devcenter.heroku.com/articles/getting-started-with-rails6
 [troubleshooting guide on heroku]: https://devcenter.heroku.com/articles/getting-started-with-rails6#troubleshooting
+
+## Credits 
+
+Project Template: FlatIron School for Technology 
+
+Resources: 
+
+- https://medium.com/swlh/react-reactions-cfdde7f08dff
+- https://medium.com/quick-code/simple-rails-crud-app-with-react-frontend-using-react-rails-gem-b708b89a9419
+
+## Addendum: 
+
+I want to take a moment and say that this entire process was frustrating and exhausting, my patience ran thin and I have been apart of this entire cohort(s) for a while now and the main regret is that it took three cohort leads to help me understand this part of the curriculum. Not only am I also working, but this to me just shows how punishing this can be. 
