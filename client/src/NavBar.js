@@ -52,7 +52,7 @@ function NavBar({ user, setUser }) {
       <Row>
         <Col style={{width: '15em'}}>
           <Button 
-          onClick={handleLogoutClick}>
+          onClick={() => handleLogoutClick()}>
             Logout
           </Button>
         </Col>

@@ -21,7 +21,7 @@ function App() {
     })
   }, []);
 
-  console.log(newUser) 
+  console.log("this is new user", newUser) 
   
   if (!newUser) return <LoginContainer onLogin={setNewUser} />;
 
@@ -46,10 +46,6 @@ function App() {
       user={newUser}
       />}
       />
-      {/* <Route
-      path="/signupcontainer"
-      element={<SignUpContainer/>}
-      />  */}
       <Route
       path="/createblogs"
       element={<CreateBlogs
