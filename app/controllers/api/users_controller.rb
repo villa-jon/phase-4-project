@@ -17,6 +17,7 @@ class Api::UsersController < ApplicationController
     user = User.create(user_params)
     if user
       # login!
+      session[:user_id] = user.id
       render json: user
     else 
       render json: {

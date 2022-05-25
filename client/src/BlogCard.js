@@ -3,7 +3,7 @@ import EditForm from "./EditForm"
 import Comment from "./Comment"
 import PostComment from "./comments-section/PostComment"
 import { Card, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { useIsRTL } from 'react-bootstrap/esm/ThemeProvider';
+// import { useIsRTL } from 'react-bootstrap/esm/ThemeProvider';
 
 const BlogCard = ({ blog, edtUGHedit, showDelete, newUser}) => {
   const [likes, setLikes] = useState(blog.vote_likes)
