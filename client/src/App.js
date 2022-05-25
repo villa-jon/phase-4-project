@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import { Route, Routes } from "react-router-dom";
 import './App.css';
-import Navbar from './NavBar'
+import NavBar from './NavBar'
 import LoginContainer from './LoginContainer'
 import Blogs from './Blogs'
 import Home from './Home'
@@ -30,7 +30,7 @@ function App() {
   
   return (
     <div className="App">
-      <Navbar 
+      <NavBar 
       user={newUser} 
       setUser = {setNewUser}/>
     <Routes>
