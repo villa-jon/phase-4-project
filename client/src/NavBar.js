@@ -37,7 +37,9 @@ function NavBar({ user, setUser }) {
             <Nav.Item>
               <Nav.Link href="/createblogs" style={{padding: '10px'}}>Post</Nav.Link>
             </Nav.Item>
-              
+            <Nav.Item>
+              <Nav.Link href="/profilepage" style={{padding: '10px'}}>Profile</Nav.Link>
+            </Nav.Item>
               {/* <NavLink to="signupcontainer" style={{padding: '10px'}}>Sign Up</NavLink> */}
            </Nav>
         </Container>

@@ -1,8 +1,12 @@
 class Api::UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-  # skip_before_action :authorize, only: [:create]
   before_action :authorize, except: :create
+
+  # def most_blogs
+  #   user = User.most_blogs
+  #   render json: user
+  # end 
 
   def index
     users = User.all

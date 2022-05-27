@@ -2,6 +2,7 @@ class BlogSerializer < ActiveModel::Serializer
   attributes :id, :name, :post, :user_id, :vote_likes, :destroy_likes, :show_users
   has_many :comments
   has_many :votes
+  has_many :users
 
   def vote_likes
     self.object.votes.length

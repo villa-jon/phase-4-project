@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :comments
     # resources :votes
     get "/current-user", to: "users#show"
+    # get "/most-blogs", to: "users#most_blogs"
     post "/users", to: "users#create" 
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"

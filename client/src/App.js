@@ -7,6 +7,7 @@ import LoginContainer from './LoginContainer'
 import Blogs from './Blogs'
 import Home from './Home'
 import CreateBlogs from'./CreateBlogs'
+import ProfilePage from './Profile/ProfilePage'
 
 function App() {
   const [newUser, setNewUser] = useState(null)
@@ -49,6 +50,12 @@ function App() {
       <Route
       path="/createblogs"
       element={<CreateBlogs
+      newUser={newUser}
+      />}
+      />
+      <Route
+      path="/profilepage"
+      element={<ProfilePage
       newUser={newUser}
       />}
       />
