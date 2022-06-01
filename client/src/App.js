@@ -7,7 +7,7 @@ import LoginContainer from './LoginContainer'
 import Blogs from './Blogs'
 import Home from './Home'
 import CreateBlogs from'./CreateBlogs'
-import ProfilePage from './Profile/ProfilePage'
+import ProfilePage from './ProfilePage'
 
 function App() {
   const [newUser, setNewUser] = useState(null)
