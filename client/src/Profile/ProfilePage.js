@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
 
-const ProfilePage = () => {
-  const [blogs, setBlogs] = useState([])
+// import { Card, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+
+const ProfilePage = ({ newUser }) => {
+  const [blogs, setBlogs] = useState(newUser.liked_blogs)
 
   useEffect(() => {
     const abortController = new AbortController()
@@ -20,9 +22,15 @@ const ProfilePage = () => {
     }
   }, []);
 
+  const likedBlogs = blogs.map((blog) => <div key={blog.id}>
+
+  </div>)
+
+  console.log(likedBlogs)
+
   return (
     <div>
-      
+      {likedBlogs}
     </div>
   )
 }
