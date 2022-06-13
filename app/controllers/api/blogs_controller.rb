@@ -1,10 +1,15 @@
 class Api::BlogsController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+  # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def index
     blogs = Blog.all
     render json: blogs
   end 
+
+  def search_for_comments
+    blogs = Blog.search_for_comments(params[:search])
+    render json: blogs
+  end
 
   def show
     blog = Blog.find_by_id(params[:id])
@@ -47,11 +52,6 @@ class Api::BlogsController < ApplicationController
   end 
 
   # byebug
-
-  def most_votes
-    blog = Blog.most_votes
-    render json: blog
-  end 
 
   private
 

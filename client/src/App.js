@@ -14,7 +14,7 @@ import ReviewButton from './review-things/ReviewButton'
 
 function App() {
   const [newUser, setNewUser] = useState(null)
-  const [blog, setBlogs] = useState([])
+  // const [blogs, setBlogs] = useState([])
 
   useEffect(() => {
     // console.log(newUser)
@@ -32,20 +32,6 @@ function App() {
 
   // I'm pretty sure that this ^ is causing my sign-up to go bweh!
   // I may have to move this down into div or create a ternaryjvilanueva01
-
-
-
-  function handleSubmit(w) {
-    // console.log("this is w", w )
-    w.preventDefault();
-    // debugger
-    fetch("/api/most-votes", {
-      method: "GET"
-    })
-    // console.log()
-    .then((r) => r.json())
-    .then((data) => setBlogs(data))
-  }
 
   // function handleSubmit(w) {
   //   // console.log("this is ordering" )
@@ -96,24 +82,6 @@ function App() {
       />}
       />
     </Routes>
-{
-  blog ? 
-  <div
-    className="whereAreYou"
-    >
-    <button
-          onClick={handleSubmit}
-          type="button"
-              >
-                min pls
-              </button> 
-    </div>
-    :
-  <div
-  className="imHere"
-  >
-    </div> 
-}
     </div>
   );
 }

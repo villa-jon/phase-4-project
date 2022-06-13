@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+  # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   before_action :authorize, except: :create
 
@@ -19,7 +19,7 @@ class Api::UsersController < ApplicationController
 
   def create 
     user = User.create(user_params)
-    if user
+    if user.id
       # login!
       session[:user_id] = user.id
       render json: user

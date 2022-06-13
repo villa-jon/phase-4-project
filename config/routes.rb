@@ -8,12 +8,11 @@ Rails.application.routes.draw do
     resources :comments
     # resources :votes
     get "/current-user", to: "users#show"
-    # get "/min-blogs", to: "users#min_blogs" 
     post "/users", to: "users#create" 
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     # get "/alphabetize", to: "blogs#alphabetize"
-    get "/most-votes", to: "blogs#most_votes"
+    post "/search_for_comments", to: "blogs#search_for_comments"
     
   end 
   # Routing logic: fallback requests for React Router.

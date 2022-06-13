@@ -51,6 +51,25 @@ function Blogs({ setUser }) {
       .then((data) => setBlogs(data))
   } 
 
+  function handleChange(w) {
+    // console.log("this is ordering" )
+    w.preventDefault();
+    // debugger
+    fetch("/api/search_for_comments", {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json",
+				"Accept" : "application/json"
+      },
+      body: JSON.stringify({
+        search: search
+      })
+    })
+      // console.log()
+      .then((r) => r.json())
+      .then((data) => setBlogs(data))
+  } 
+
 
   function editBlog(newBlog) {
     const updatedBlogsLOL = blogs.map((blog) => {
@@ -81,8 +100,9 @@ function Blogs({ setUser }) {
        <div className="parentSignin">
           <Header
           search={search}
-          setSearch={setSearch}
-          // blogs={blogs}
+          setSearch={handleChange}
+          blogs={blogs}
+
           />
           <BlogForm
           showDelete={handleDelete}

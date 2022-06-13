@@ -14,9 +14,10 @@ class Blog < ApplicationRecord
     self.order('name ASC')
   end 
 
-  def self.most_votes
-    self.preload(:votes).max_by{ |blog| blog.votes.length}
+  def self.search_for_comments(search)
+    self.all.select do |blog| 
+      blog.comments.find { |comment| comment.comment.include?(search)}
+    end  
   end 
-
 
 end
