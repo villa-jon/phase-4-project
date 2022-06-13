@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import BlogForm from "./BlogForm"
 import Header from "./Header"
+// import ReviewButton  from "./
+import { Button } from "react-bootstrap";
 
 import "./css/Blogs.css"
 
@@ -24,6 +26,31 @@ function Blogs({ setUser }) {
       // stop the query by aborting on the AbortController on unmount
     }
   }, []);
+
+  function handleSubmit(w) {
+    // console.log("this is ordering" )
+    w.preventDefault();
+    fetch("/api/most-votes", {
+      method: "GET"
+    })
+    // console.log()
+    .then((r) => r.json())
+    .then((data) => setBlogs(data))
+    // debugger
+  }
+
+  function handleSubmit1(w) {
+    // console.log("this is ordering" )
+    w.preventDefault();
+    // debugger
+    fetch("/api/dealphabetize", {
+      method: "GET"
+    })
+      // console.log()
+      .then((r) => r.json())
+      .then((data) => setBlogs(data))
+  } 
+
 
   function editBlog(newBlog) {
     const updatedBlogsLOL = blogs.map((blog) => {
@@ -64,9 +91,17 @@ function Blogs({ setUser }) {
           edtUGHedit={editBlog}
           setUser={setUser}
           /> 
-          {/* <CreateBlogs
-          setBlogs={setBlogs}
-          /> */}
+          {blogs ? 
+          <Button
+          onClick={handleSubmit}
+              >
+           most Blogs, please     
+            </Button>
+            :
+          <div>
+            {blogs.post}
+          </div> 
+}
          </div>  
   );
 }

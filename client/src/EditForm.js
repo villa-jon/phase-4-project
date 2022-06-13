@@ -15,6 +15,7 @@ function EditForm({blog, edtUGHedit, bOooo}) {
 				"Accept" : "application/json"
 			},
 			body: JSON.stringify({
+          name: current,
 					post: current
 			}),
 			})

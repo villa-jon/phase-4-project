@@ -8,9 +8,13 @@ import Blogs from './Blogs'
 import Home from './Home'
 import CreateBlogs from'./CreateBlogs'
 import ProfilePage from './ProfilePage'
+import ReviewButton from './review-things/ReviewButton'
+// import { Button } from "react-bootstrap";
+
 
 function App() {
   const [newUser, setNewUser] = useState(null)
+  const [blog, setBlogs] = useState([])
 
   useEffect(() => {
     // console.log(newUser)
@@ -22,12 +26,38 @@ function App() {
     })
   }, []);
 
-  console.log("this is new user", newUser) 
+  // console.log("this is new user", newUser) 
   
   if (!newUser) return <LoginContainer onLogin={setNewUser} />;
 
   // I'm pretty sure that this ^ is causing my sign-up to go bweh!
   // I may have to move this down into div or create a ternaryjvilanueva01
+
+
+
+  function handleSubmit(w) {
+    // console.log("this is w", w )
+    w.preventDefault();
+    // debugger
+    fetch("/api/most-votes", {
+      method: "GET"
+    })
+    // console.log()
+    .then((r) => r.json())
+    .then((data) => setBlogs(data))
+  }
+
+  // function handleSubmit(w) {
+  //   // console.log("this is ordering" )
+  //   w.preventDefault();
+  //   fetch("/api/min-blogs", {
+  //     method: "GET"
+  //   })
+  //   // console.log()
+  //   .then((r) => r.json())
+  //   .then((data) => setNewUser(data))
+  //   // debugger
+  // }
   
   return (
     <div className="App">
@@ -59,8 +89,31 @@ function App() {
       newUser={newUser}
       />}
       />
+      <Route
+      path="/reviewbutton"
+      element={<
+        ReviewButton
+      />}
+      />
     </Routes>
-      
+{
+  blog ? 
+  <div
+    className="whereAreYou"
+    >
+    <button
+          onClick={handleSubmit}
+          type="button"
+              >
+                min pls
+              </button> 
+    </div>
+    :
+  <div
+  className="imHere"
+  >
+    </div> 
+}
     </div>
   );
 }

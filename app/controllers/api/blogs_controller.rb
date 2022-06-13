@@ -1,8 +1,6 @@
 class Api::BlogsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-  # before_action :authorize, except: :create
-
   def index
     blogs = Blog.all
     render json: blogs
@@ -10,7 +8,7 @@ class Api::BlogsController < ApplicationController
 
   def show
     blog = Blog.find_by_id(params[:id])
-    if blog
+    if blog 
       render json: blog
     else 
       render json: {error: "Could not find blog #{params[:id]}"}
@@ -34,7 +32,7 @@ class Api::BlogsController < ApplicationController
     if blog&.update(blog_params)
       render json: blog
     else 
-      render json: {error: blog.errors.full_messages.to_sentence}, status: 406
+      render json: {errors: blog.errors.full_messages.to_sentence}, status: 406
     end 
   end 
 
@@ -46,6 +44,13 @@ class Api::BlogsController < ApplicationController
     else 
       render json: {error: blog.error.full_messages.to_sentence}, status: 406
     end 
+  end 
+
+  # byebug
+
+  def most_votes
+    blog = Blog.most_votes
+    render json: blog
   end 
 
   private

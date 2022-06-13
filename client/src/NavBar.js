@@ -1,4 +1,5 @@
 import React from 'react'
+import "./css/NavBar.css"
 import { Navbar, Container, Nav, Button, Row, Col } from "react-bootstrap";
 // import ReactDOM from 'react-dom';
 // import Button from '@mui/material/Button';
@@ -12,7 +13,6 @@ const buttonStyle = {
 }
 
 function NavBar({ user, setUser }) {
-
   function handleLogoutClick() {
     fetch("/api/logout", 
     { method: "DELETE" }).then((r) => {
@@ -24,7 +24,7 @@ function NavBar({ user, setUser }) {
 
   return(
     <div className="navber">
-     <Navbar expand="lg" bg="light" variant="light">
+     <Navbar className="navber" expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Brand href="#home">Welcome!</Navbar.Brand>
           <Nav className="me-auto">
@@ -40,7 +40,7 @@ function NavBar({ user, setUser }) {
             <Nav.Item>
               <Nav.Link href="/profilepage" style={{padding: '10px'}}>Profile</Nav.Link>
             </Nav.Item>
-              {/* <NavLink to="signupcontainer" style={{padding: '10px'}}>Sign Up</NavLink> */}
+              <Nav.Link to="reviewbutton" style={{padding: '10px'}}>Button'</Nav.Link>
            </Nav>
         </Container>
       <div style={buttonStyle}>

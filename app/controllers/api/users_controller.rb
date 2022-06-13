@@ -3,8 +3,8 @@ class Api::UsersController < ApplicationController
 
   before_action :authorize, except: :create
 
-  # def most_blogs
-  #   user = User.most_blogs
+  # def min_blogs
+  #   user = User.min_blogs
   #   render json: user
   # end 
 
